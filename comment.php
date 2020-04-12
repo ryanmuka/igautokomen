@@ -5,7 +5,7 @@ clear();
 echo "
  *  INSTAGRAM FEED COMMENTER
  *  ReCode CJDW Team
- *  RECOMMENDED SLEEP 600s
+ *  RECOMMENDED SLEEP 800s
   
     •••••••••••••••••••••••••••••••••••••••••
     
@@ -65,7 +65,7 @@ if ($login['status'] == 'success') {
                 }
                 $hitung = $hitung+1;
             endif;
-            sleep(5);
+            sleep(120);
         }
         sleep($slee);
     endfor;
