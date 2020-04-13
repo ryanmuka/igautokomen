@@ -5,7 +5,6 @@ clear();
 echo "
  *  INSTAGRAM FEED COMMENTER
  *  ReCode CJDW Team
- *  RECOMMENDED SLEEP 800s
   
     •••••••••••••••••••••••••••••••••••••••••
     
@@ -15,11 +14,10 @@ echo "
  * Make sure your account has been verified (Email & Telp).
  
 ";
-
-## username and password geting
 $username    = getUsername();
 $password    = getPassword();
 
+echo '•••••••••••••••••••••••••••••••••••••••••' . PHP_EOL . PHP_EOL;
 $login = login($username, $password);
 if ($login['status'] == 'success') {
     echo '[*] Login as ' . $login['username'] . ' Success!' . PHP_EOL;
@@ -27,10 +25,8 @@ if ($login['status'] == 'success') {
         'username' => $login['username'],
         'csrftoken' => $login['csrftoken'],
         'sessionid' => $login['sessionid']
-
     );
-    $comment = getComment();
-       $slee = getComment('[?]  Sleep in Seconds ( RECOMMENDED 800 )  : ');
+    $slee = getComment('[?]  Sleep in Seconds ( RECOMMENDED 800 )  : ');
     for($i=0;$i<800;$i++):
         $profile    = getHome($data_login);
         $data_array = json_decode($profile);
@@ -40,11 +36,8 @@ if ($login['status'] == 'success') {
         echo '[+] Total Postingan '.$jumlah.' '. PHP_EOL;
         foreach ($result->edges as $items) {
             $id       = $items->node->id;
-            $username = $items->node->owner->username;
-            
+            $username = $items->node->owner->username;     
             if(!$items->node->viewer_has_comment):
-
-
             $like = comment($id, $data_login,$comment);
             if ($like['status'] == 'error') {
                 echo '[+] Username: ' . $username . ' | Media_id: ' . $id . ' | Error Comment' . PHP_EOL;
