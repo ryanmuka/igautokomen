@@ -26,6 +26,7 @@ if ($login['status'] == 'success') {
         'csrftoken' => $login['csrftoken'],
         'sessionid' => $login['sessionid']
     );
+  $comment = getComment();
     $slee = getComment('[?]  Sleep in Seconds ( RECOMMENDED 800 )  : ');
     for($i=0;$i<800;$i++):
         $profile    = getHome($data_login);
